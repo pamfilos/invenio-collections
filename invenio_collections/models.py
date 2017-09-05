@@ -46,6 +46,12 @@ class Collection(db.Model, BaseNestedSets):
     dbquery = db.Column(db.Text, nullable=True)
     """Query that returns all records that belong to this collection.."""
 
+    description = db.Column(db.Text, nullable=True)
+    """Collection description."""
+
+    thumb = db.Column(db.Text, nullable=True)
+    """Collection thumbnail."""
+
     @validates('parent_id')
     def validate_parent_id(self, key, parent_id):
         """Parent has to be different from itself."""
